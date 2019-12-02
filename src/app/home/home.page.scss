@@ -1,0 +1,19 @@
+.empty-list {
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 40px;
+  color: var(--ion-color-medium);
+}
+
+.pedidoContainer {
+  background-color: #eee;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+}
+
+.pedidoContainer h6 {
+  margin: 0px;
+  font-weight: bold;
+}

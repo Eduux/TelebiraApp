@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/new-order']">
+        Novo pedido<ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Pedidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="items" class="list-mini-content" padding>
+  <div *ngIf="items.length > 0" class="list-mini">
+    <ion-list>
+      <h2 style="margin-top: 0px; margin-bottom: 20px;">Meus pedidos:</h2>
+      <div class="pedidoContainer" *ngFor="let item of items" [routerLink]="['/details', item.payload.doc.id]">
+        <h6>{{item.payload.doc.data().produto}}</h6>
+        <p>Data: {{item.payload.doc.data().data}}</p>
+        <p>Pagamento {{item.payload.doc.data().pagamento}}</p>
+        <p style="margin-bottom: 0px;">Status: <strong>{{item.payload.doc.data().status}}</strong></p>
+      </div>
+    </ion-list>
+  </div>
+  <div *ngIf="items.length == 0" class="empty-list">
+    Faça o seu primeiro pedido
+  </div>
+</ion-content>
+<ion-footer (click)="logout()">
+  <ion-toolbar color="medium">
+    <ion-title>Sair</ion-title>
+  </ion-toolbar>
+</ion-footer>

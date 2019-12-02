@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Novo pedido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+    <p>Selecione o produto</p>
+    <ion-select formControlName="produto" [placeholder]="'Selecione o produto'">
+      <ion-select-option *ngFor="let item of products">
+        {{item.payload.doc.data().nome}} -  R$ {{item.payload.doc.data().valor}}
+      </ion-select-option>
+    </ion-select>
+    <p>Forma de pagamento</p>
+    <ion-select formControlName="pagamento" [placeholder]="'Selecione a forma de pagamento'">
+      <ion-select-option>Cartão</ion-select-option>
+      <ion-select-option>Dinheiro</ion-select-option>
+    </ion-select>
+    <p>Endereço de entrega</p>
+    <ion-item>
+      <ion-label position="floating" color="primary">Bairro</ion-label>
+      <ion-input type="text" formControlName="bairro"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Rua</ion-label>
+      <ion-input type="text" formControlName="rua"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Número</ion-label>
+      <ion-input type="text" formControlName="numero"></ion-input>
+    </ion-item>
+    <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!validations_form.valid">Pedir</ion-button>
+  </form>
+</ion-content>

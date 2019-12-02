@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhes do pedido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h6 color="primary" style="font-weight: bold;">Produto:</h6>
+  <p *ngIf="item.produto">{{item.produto}}</p>
+  <h6 color="primary"  style="font-weight: bold;">Endereço de entrega:</h6>
+  <p *ngIf="item.rua">{{item.rua}} {{item.numero}}</p>
+  <h6 color="primary"  style="font-weight: bold;">Forma de pagamento:</h6>
+  <p *ngIf="item.status">{{item.pagamento}}</p>
+  <h6 color="primary"  style="font-weight: bold;">Status:</h6>
+  <p *ngIf="item.status">{{item.status}}</p>
+<ion-button *ngIf="item.status === 'Recebido'" class="delete-button" expand="block" color="danger" (click)="delete()">Cancelar pedido!</ion-button>
+
+</ion-content>

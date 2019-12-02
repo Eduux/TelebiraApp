@@ -1,2 +1,1 @@
-# TelebiraApp
-Aplicativo Fadergs
+
