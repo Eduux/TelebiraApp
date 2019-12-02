@@ -1,0 +1,7 @@
+{
+  "name": "Telebira",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
